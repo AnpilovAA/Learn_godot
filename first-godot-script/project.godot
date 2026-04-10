@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="first_godot_script"
-run/main_scene="uid://c300gqjs6s7ne"
+run/main_scene="uid://b3g2squijxs8k"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
