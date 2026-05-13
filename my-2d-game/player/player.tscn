@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bbbbh3yn77p4y"]
+
+[ext_resource type="Script" uid="uid://m43dvwwfsub8" path="res://player/player.gd" id="1_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://bemuxekmypf8n" path="res://player/anime/1_move.png" id="2_yw30f"]
+[ext_resource type="Texture2D" uid="uid://cwqtfqrkancgy" path="res://player/anime/2_move.png" id="3_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://7qjphvvlsleh" path="res://player/anime/3_move.png" id="4_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://mxiifnvj3g36" path="res://player/2d_blend.png" id="5_qjkh3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_boad6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qjkh3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yw30f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qjkh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g6k8r")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[node name="Player" type="Area2D" unique_id=381190919]
+linear_damp = 0.0
+angular_damp = 0.0
+script = ExtResource("1_qjkh3")
+speed = 300
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1683813660]
+sprite_frames = SubResource("SpriteFrames_boad6")
+animation = &"walk"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=358548636]
+polygon = PackedVector2Array(0, -75, -9, -74, -14, -72, -20, -66, -24, -61, -26, -52, -24, -41, -16, -31, -5, -27, -31, 15, -27, 17, -3, -19, -4, 35, -18, 81, -15, 81, -0.5, 35, 15, 81, 18, 81, 3, 35, 3, -19, 30, 13, 33, 11, 6, -27, 14, -31, 20, -36, 24, -41, 26, -51, 24, -60, 20, -66, 15, -71, 9, -74, 5, -75)
+
+[node name="Label" type="Label" parent="." unique_id=639165246]
+offset_left = -23.145
+offset_top = -100.0
+offset_right = 25.855
+offset_bottom = -77.0
+text = "player"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
